@@ -27,7 +27,7 @@ export default async function middleware(req: NextRequest) {
   });
   console.log("URL", url);
 
-  const subdomain = hostname?.replace("zifosteam.com", "");
+  const subdomain = hostname?.replace((process.env as any).VERCEL_URL, "");
 
   if (subdomain?.includes(".") && url.pathname.includes("admin")) {
     return NextResponse.rewrite(
