@@ -10,7 +10,7 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/",
+        source: "/web",
         destination: `/`,
       },
       {
