@@ -30,8 +30,15 @@ export default async function middleware(req: NextRequest) {
   const subdomain = hostname?.replace("zifosteam.com", "");
 
   if (subdomain?.includes(".") && url.pathname.includes("admin")) {
-    url.host = `${BLOG_URL}`;
-    url.pathname = `/blog/${subdomain.replace(".", "")}/${url.pathname}`;
+    return NextResponse.rewrite(
+      `${BLOG_URL}/blog/${subdomain.replace(".", "")}/${url.pathname}`
+    );
+  }
+
+  if (subdomain) {
+    return NextResponse.rewrite(
+      `zifosteam.com/${subdomain.replace(".", "")}/${url.pathname}`
+    );
   }
 
   return NextResponse.rewrite(url);
