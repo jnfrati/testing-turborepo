@@ -18,7 +18,7 @@ module.exports = {
         has: [
           {
             type: "host",
-            value: "admin.(?<dynamic>).zifosteam.com",
+            value: "(?<dynamic>).zifosteam.com",
           },
         ],
         destination: `${BLOG_URL}/blog/:dynamic/:path*`,
