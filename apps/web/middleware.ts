@@ -31,13 +31,13 @@ export default async function middleware(req: NextRequest) {
 
   if (subdomain?.includes(".") && url.pathname.includes("admin")) {
     return NextResponse.rewrite(
-      `${BLOG_URL}/blog/${subdomain.replace(".", "")}/${url.pathname}`
+      `${BLOG_URL}/blog/${subdomain.replace(".", "")}${url.pathname}`
     );
   }
 
   if (subdomain) {
     return NextResponse.rewrite(
-      `zifosteam.com/${subdomain.replace(".", "")}/${url.pathname}`
+      `zifosteam.com/${subdomain.replace(".", "")}${url.pathname}`
     );
   }
 
