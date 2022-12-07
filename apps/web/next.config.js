@@ -14,6 +14,16 @@ module.exports = {
         destination: `/:path*`,
       },
       {
+        source: "/:path*",
+        has: [
+          {
+            type: "host",
+            value: "blog.(:host)",
+          },
+        ],
+        destination: `${BLOG_URL}/blog/:path*`,
+      },
+      {
         source: "/blog",
         destination: `${BLOG_URL}/blog`,
       },
