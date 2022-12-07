@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const { BLOG_URL } = process.env as any;
 
 export const config = {
-  matcher: ["/", "/about", "/_sites/:path"],
+  matcher: ["/:path"],
 };
 
 export default async function middleware(req: NextRequest) {
@@ -37,7 +37,7 @@ export default async function middleware(req: NextRequest) {
 
   if (subdomain) {
     return NextResponse.rewrite(
-      `zifosteam.com/${subdomain.replace(".", "")}${url.pathname}`
+      `/${subdomain.replace(".", "")}${url.pathname}`
     );
   }
 
