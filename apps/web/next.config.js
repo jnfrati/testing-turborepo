@@ -10,18 +10,18 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/:path*",
-        destination: `/:path*`,
+        source: "/",
+        destination: `/`,
       },
       {
         source: "/:path*",
         has: [
           {
             type: "host",
-            value: "blog.zifosteam.com",
+            value: ":id.zifosteam.com",
           },
         ],
-        destination: `${BLOG_URL}/blog/:path*`,
+        destination: `${BLOG_URL}/blog/:id/:path*`,
       },
       {
         source: "/blog",
