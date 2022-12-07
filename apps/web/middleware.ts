@@ -40,7 +40,7 @@ export default async function middleware(req: NextRequest) {
 
   if (subdomain) {
     return NextResponse.rewrite(
-      `/${subdomain.replace(".", "")}${url.pathname}`
+      `https://zifosteam.com/${subdomain.replace(".", "")}${url.pathname}`
     );
   }
 
