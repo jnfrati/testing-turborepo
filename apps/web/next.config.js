@@ -18,7 +18,7 @@ module.exports = {
         has: [
           {
             type: "host",
-            value: "blog.(:host)",
+            value: "blog.zifosteam.com",
           },
         ],
         destination: `${BLOG_URL}/blog/:path*`,
