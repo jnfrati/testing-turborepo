@@ -4,5 +4,4 @@ module.exports = {
   experimental: {
     transpilePackages: ["ui"],
   },
-  basePath: "/blog",
 };
