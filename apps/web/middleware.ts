@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 const { BLOG_URL } = process.env as any;
 
 export const config = {
-  matcher: ["/:path"],
+  matcher: ["/:path*"],
 };
 
 export default async function middleware(req: NextRequest) {
