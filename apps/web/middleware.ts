@@ -14,11 +14,11 @@ export default async function middleware(req: NextRequest) {
 
   let subdomain = hostname?.replace((process.env as any).VERCEL_URL, "");
 
-  console.log(subdomain, url.pathname);
-
   if (hostname?.includes("zifosteam.com")) {
     subdomain = hostname?.replace("zifosteam.com", "");
   }
+
+  console.log(subdomain, url.pathname);
 
   if (subdomain?.includes(".") && url.pathname.includes("admin")) {
     return NextResponse.rewrite(
