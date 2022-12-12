@@ -18,7 +18,7 @@ export default async function middleware(req: NextRequest) {
     subdomain = hostname?.replace("zifosteam.com", "");
   }
 
-  console.log(subdomain, url.pathname);
+  console.log(subdomain, url);
 
   if (subdomain?.includes(".") && url.pathname.includes("admin")) {
     return NextResponse.rewrite(

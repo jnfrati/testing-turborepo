@@ -7,7 +7,7 @@ export default function Docs() {
   return (
     <div>
       <h1>Dynamic web</h1>
-      {query.dinamic}
+      {query.dynamic}
       <Button />
     </div>
   );
