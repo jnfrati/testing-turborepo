@@ -10,10 +10,11 @@ export default async function middleware(req) {
   const hostname = url.hostname;
 
   let subdomain = hostname?.split(".")[0];
+  console.log(url);
 
   if (subdomain && subdomain.includes("admin")) {
     url.hostname = ADMIN_URL;
-
+    console.log(url);
     return Response.rewrite(url);
   }
 
@@ -22,6 +23,6 @@ export default async function middleware(req) {
   }
 
   url.hostname = PUBLIC_URL;
-
+  console.log(url);
   return Response.rewrite(url);
 }
