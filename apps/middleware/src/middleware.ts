@@ -1,10 +1,10 @@
-const { ADMIN_URL, PUBLIC_URL } = process.env;
+import { rewrite } from "@vercel/edge";
 
 export const config = {
-  matcher: ["/.*)"],
+  matcher: "/(.*)",
 };
 
-export default async function middleware(req) {
+export default async function middleware(req: Request) {
   const url = new URL(req.url);
 
   const hostname = url.hostname;
@@ -13,16 +13,16 @@ export default async function middleware(req) {
   console.log(url);
 
   if (subdomain && subdomain.includes("admin")) {
-    url.hostname = ADMIN_URL;
+    url.hostname = process.env.ADMIN_URL || "";
     console.log(url);
-    return Response.rewrite(url);
+    return rewrite(url);
   }
 
   if (subdomain) {
     url.pathname = `/${subdomain}${url.pathname}`;
   }
 
-  url.hostname = PUBLIC_URL;
+  url.hostname = process.env.PUBLIC_URL || "";
   console.log(url);
-  return Response.rewrite(url);
+  return rewrite(url);
 }

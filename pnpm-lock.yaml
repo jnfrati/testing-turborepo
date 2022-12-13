@@ -41,6 +41,17 @@ importers:
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.3
 
+  apps/middleware:
+    specifiers:
+      '@vercel/edge': ^0.1.2
+      tsconfig: workspace:*
+      typescript: ^4.9.4
+    dependencies:
+      '@vercel/edge': 0.1.2
+    devDependencies:
+      tsconfig: link:../../packages/tsconfig
+      typescript: 4.9.4
+
   apps/web:
     specifiers:
       '@babel/core': ^7.0.0
@@ -629,6 +640,10 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.45.1
       eslint-visitor-keys: 3.3.0
+    dev: false
+
+  /@vercel/edge/0.1.2:
+    resolution: {integrity: sha512-NmoJ4JvF2/LxU8e8fRJcxaMrO9A8a2WmW6CO9GEomlDltlREyQTUWMk13BuCDDpXUPcSBDrZ2TJIoWiFQEI4sg==}
     dev: false
 
   /acorn-jsx/5.3.2_acorn@7.4.1:
@@ -2239,6 +2254,12 @@ packages:
 
   /typescript/4.9.3:
     resolution: {integrity: sha512-CIfGzTelbKNEnLpLdGFgdyKhG23CKdKgQPOBc+OUNrkJ2vr+KSzsSV5kq5iWhEQbok+quxgGzrAtGWCyU7tHnA==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/4.9.4:
+    resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
     hasBin: true
     dev: true
