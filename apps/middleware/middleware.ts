@@ -27,5 +27,5 @@ export default async function middleware(req: NextRequest) {
 
   newUrl.hostname = process.env.PUBLIC_URL || "";
   console.log("REWRITE TO PUBLIC", newUrl);
-  return NextResponse.rewrite(url);
+  return NextResponse.rewrite(newUrl);
 }
