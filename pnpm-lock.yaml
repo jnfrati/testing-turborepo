@@ -43,12 +43,30 @@ importers:
 
   apps/middleware:
     specifiers:
-      '@vercel/edge': ^0.1.2
+      '@babel/core': ^7.0.0
+      '@types/node': ^17.0.12
+      '@types/react': ^18.0.22
+      '@types/react-dom': ^18.0.7
+      eslint: 7.32.0
+      eslint-config-custom: workspace:*
+      next: 13.0.0
+      react: 18.2.0
+      react-dom: 18.2.0
       tsconfig: workspace:*
-      typescript: ^4.9.4
+      typescript: ^4.5.3
+      ui: workspace:*
     dependencies:
-      '@vercel/edge': 0.1.2
+      next: 13.0.0_f7f54ba9762387f2349b6c2723ebda10
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      ui: link:../../packages/ui
     devDependencies:
+      '@babel/core': 7.20.5
+      '@types/node': 17.0.45
+      '@types/react': 18.0.26
+      '@types/react-dom': 18.0.9
+      eslint: 7.32.0
+      eslint-config-custom: link:../../packages/eslint-config-custom
       tsconfig: link:../../packages/tsconfig
       typescript: 4.9.4
 
@@ -640,10 +658,6 @@ packages:
     dependencies:
       '@typescript-eslint/types': 5.45.1
       eslint-visitor-keys: 3.3.0
-    dev: false
-
-  /@vercel/edge/0.1.2:
-    resolution: {integrity: sha512-NmoJ4JvF2/LxU8e8fRJcxaMrO9A8a2WmW6CO9GEomlDltlREyQTUWMk13BuCDDpXUPcSBDrZ2TJIoWiFQEI4sg==}
     dev: false
 
   /acorn-jsx/5.3.2_acorn@7.4.1:
