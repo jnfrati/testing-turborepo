@@ -5,9 +5,6 @@ export const config = {
 };
 
 export default async function middleware(req: NextRequest) {
-  if (!req.url) {
-    return NextResponse.next();
-  }
   const url = req.nextUrl;
 
   const hostname = url.hostname;
@@ -17,7 +14,7 @@ export default async function middleware(req: NextRequest) {
 
   if (subdomain && subdomain.includes("admin")) {
     url.hostname = process.env.ADMIN_URL || "";
-    console.log(url);
+    console.log("REWRITE TO ADMIN", url);
     return NextResponse.rewrite(url);
   }
 
@@ -26,6 +23,6 @@ export default async function middleware(req: NextRequest) {
   }
 
   url.hostname = process.env.PUBLIC_URL || "";
-  console.log(url);
+  console.log("REWRITE TO PUBLIC", url);
   return NextResponse.rewrite(url);
 }
