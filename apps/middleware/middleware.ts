@@ -10,12 +10,13 @@ export default async function middleware(req: NextRequest) {
   const hostname = url.hostname;
 
   let subdomain = hostname?.split(".")[0];
-  console.log(url);
+  console.log("BASE OBJECT", url);
 
   if (subdomain && subdomain.includes("admin")) {
-    url.hostname = process.env.ADMIN_URL || "";
-    console.log("REWRITE TO ADMIN", url);
-    return NextResponse.rewrite(url);
+    const newUrl = new URL(process.env.ADMIN_URL || "");
+    newUrl.pathname = url.pathname;
+    console.log("REWRITE TO ADMIN", newUrl);
+    return NextResponse.rewrite(newUrl);
   }
 
   if (subdomain) {
