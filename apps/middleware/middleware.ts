@@ -1,16 +1,14 @@
-import { NextApiRequest } from "next";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 export const config = {
   matcher: "/(.*)",
 };
 
-export default async function middleware(req: NextApiRequest) {
+export default async function middleware(req: NextRequest) {
   if (!req.url) {
     return NextResponse.next();
   }
-
-  const url = new URL(req.url);
+  const url = req.nextUrl;
 
   const hostname = url.hostname;
 
